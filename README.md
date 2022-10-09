@@ -6,6 +6,6 @@ Para instalaciones PIP:
 - import matplotlib.pyplot as plt
 - python -m pip install matplotlib
 
-#Conexión BDD:
+# Conexión BDD:
 - import mysql-connector-python
 - python -m pip install mysql-connector-python

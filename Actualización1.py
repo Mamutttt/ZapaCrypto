@@ -115,7 +115,7 @@ def VentasYClientes():
     BVYC.place(x=850, y=5)
     ASYL = tkinter.Button(VYC, text="Stock Y \nLogística", height=5, width=12, command=lambda: [StockYLogística(), VYC.withdraw()])
     ASYL.place(x=30, y=100)
-    AVYC = tkinter.Button(VYC, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [VentasYClientes(), VYC.withdraw()])
+    AVYC = tkinter.Button(VYC, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [])
     AVYC.place(x=30, y=200)
     ACYP = tkinter.Button(VYC, text="Compras Y \nProveedores", height=5, width=12, command=lambda: [ComprasYProveedores(), VYC.withdraw()])
     ACYP.place(x=30, y=300)

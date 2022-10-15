@@ -327,13 +327,13 @@ def Fun1Contabilidad():
     F1C.title("Función 1")
 
 
-Fondo = tkinter.PhotoImage(file=r"C:\Users\Ryzen\Desktop\Fondo.png")
+Fondo = tkinter.PhotoImage(file="Fotos/Fondo.png")
 # FondoIMG = tkinter.Label(ventana, image=Fondo)
 # FondoIMG.pack()
 background = Label(image=Fondo, text="Imagen S.O de fondo")
 background.place(x=0, y=0, relwidth=1, relheight=1)
 
-Logo = tkinter.PhotoImage(file=r"C:\Users\Ryzen\Desktop\Logo.PNG")
+Logo = tkinter.PhotoImage(file=r"Fotos/Logo.PNG")
 LogoIMG = tkinter.Label(ventana, image=Logo)
 LogoIMG.place(x=350, y=100)
 Label(text="Administra tu empresa").place(x=390, y=310)
@@ -346,22 +346,22 @@ Label(text="Contraseña"). place (x=350, y=460)
 Contraseña = Entry(ventana, width=20)
 Contraseña.place(x=350,y=485)
 
-SYL = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
+SYL = PhotoImage(file=r"Fotos/ASD.png")
 IMG1 = Button(ventana, image=SYL, borderwidth=0, command=StockYLogística)
 IMG1.place(x=150, y=150)
 Label(text="Stock y Logística").place(x=150, y=260)
 
-VYC = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
+VYC = PhotoImage(file=r"Fotos/ASD.png")
 IMG2 = Button(ventana, image=VYC, borderwidth=0, command=VentasYClientes)
 IMG2.place(x=150, y=300)
 Label(text="Ventas y Clientes").place(x=150, y=410)
 
-CYP = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
+CYP = PhotoImage(file=r"Fotos/ASD.png")
 IMG3 = Button(ventana, image=CYP, borderwidth=0, command=ComprasYProveedores)
 IMG3.place(x=650, y=150)
 Label(text="Compras y Proveedores").place(x=650, y=260)
 
-CONT = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
+CONT = PhotoImage(file=r"Fotos/ASD.png")
 IMG4 = Button(ventana, image=CONT, borderwidth=0, command=Contabilidad)
 IMG4.place(x=650, y=300)
 Label(text="Contabilidad").place(x=650, y=410)

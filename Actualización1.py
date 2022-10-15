@@ -22,7 +22,7 @@ def StockYLogística():
     BSYL = tkinter.Button(SYL, text="Volver", command=lambda: [Atrás(SYL), ()])
     BSYL.place(x=850, y=5)
 
-    ASYL = tkinter.Button(SYL, text="Stock Y \nLogística", height=5, width=12, command=lambda: [StockYLogística(), SYL.withdraw()])
+    ASYL = tkinter.Button(SYL, text="Stock Y \nLogística", height=5, width=12, command=lambda: [])
     ASYL.place(x=30, y=100)
 
     AVYC = tkinter.Button(SYL, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [VentasYClientes(), SYL.withdraw()])
@@ -34,7 +34,7 @@ def StockYLogística():
     ACONT = tkinter.Button(SYL, text="Contabilidad", height=5, width=12, command=lambda: [Contabilidad(), SYL.withdraw()])
     ACONT.place(x=30, y=400)
 
-    B1SYL = tkinter.Button(SYL, text="Funcionalidad 1  ", command="")
+    B1SYL = tkinter.Button(SYL, text="Funcionalidad 1  ", command=lambda: [Fun1SYL(),])
     B1SYL.place(x=150, y=50)
 
     B2SYL = tkinter.Button(SYL, text="Funcionalidad 2  ", command="")
@@ -84,6 +84,11 @@ def StockYLogística():
 
     ventana.withdraw()
 
+def Fun1SYL():
+    F1SYL = Tk()
+    F1SYL.geometry("900x600")
+    F1SYL.title("Función 1")
+
 
 def VentasYClientes():
     VYC = Tk()
@@ -97,7 +102,7 @@ def VentasYClientes():
     ASYL = tkinter.Button(VYC, text="Stock Y \nLogística", height=5, width=12, command=lambda: [StockYLogística(), VYC.withdraw()])
     ASYL.place(x=30, y=100)
 
-    AVYC = tkinter.Button(VYC, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [VentasYClientes(), VYC.withdraw()])
+    AVYC = tkinter.Button(VYC, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [])
     AVYC.place(x=30, y=200)
 
     ACYP = tkinter.Button(VYC, text="Compras Y \nProveedores", height=5, width=12, command=lambda: [ComprasYProveedores(), VYC.withdraw()])
@@ -171,13 +176,13 @@ def ComprasYProveedores():
     AVYC = tkinter.Button(CYP, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [VentasYClientes(), CYP.withdraw()])
     AVYC.place(x=30, y=200)
 
-    ACYP = tkinter.Button(CYP, text="Compras Y \nProveedores", height=5, width=12, command=lambda: [ComprasYProveedores(), CYP.withdraw()])
+    ACYP = tkinter.Button(CYP, text="Compras Y \nProveedores", height=5, width=12, command=lambda: [])
     ACYP.place(x=30, y=300)
 
     ACONT = tkinter.Button(CYP, text="Contabilidad", height=5, width=12, command=lambda: [Contabilidad(), CYP.withdraw()])
     ACONT.place(x=30, y=400)
 
-    B1CYP = tkinter.Button(CYP, text="Funcionalidad 1  ", command="")
+    B1CYP = tkinter.Button(CYP, text="Funcionalidad 1  ", command=lambda: [Proveedores(),])
     B1CYP.place(x=150, y=50)
 
     B2CYP = tkinter.Button(CYP, text="Funcionalidad 2  ", command="")
@@ -253,6 +258,11 @@ def ComprasYProveedores():
 
     ventana.withdraw()
 
+def Proveedores():
+    Prov = Tk()
+    Prov.geometry("900x600")
+    Prov.title("Compras y Proveedores")
+
 
 def Contabilidad():
     CONT = Tk()
@@ -273,11 +283,11 @@ def Contabilidad():
     ACYP = tkinter.Button(CONT, text="Compras Y \nProveedores", height=5, width= 12, command=lambda: [ComprasYProveedores(), CONT.withdraw()])
     ACYP.place(x=30, y=300)
 
-    ACONT = tkinter.Button(CONT, text="Contabilidad", height=5, width=12, command=lambda: [(), ()])
+    ACONT = tkinter.Button(CONT, text="Contabilidad", height=5, width=12, command=lambda: [])
     ACONT.place(x=30, y=400)
 
 
-    B1CONT = tkinter.Button(CONT, text="Funcionalidad 1  ", command="")
+    B1CONT = tkinter.Button(CONT, text="Funcionalidad 1  ", command=lambda: [Fun1Contabilidad(),])
     B1CONT.place(x=150, y=50)
 
     B2CONT = tkinter.Button(CONT, text="Funcionalidad 2  ", command="")
@@ -330,6 +340,11 @@ def Contabilidad():
     #hj.place(x=400, y=400)
 
     ventana.withdraw()
+
+def Fun1Contabilidad():
+    F1C = Tk()
+    F1C.geometry("900x600")
+    F1C.title("Función 1")
 
 
 Fondo = tkinter.PhotoImage(file=r"C:\Users\Ryzen\Desktop\Fondo.png")

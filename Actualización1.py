@@ -1,6 +1,6 @@
 import tkinter
 from tkinter import *
-
+import easygui
 ############ holis 2
 # command = lambda:[<nombre función1(), <nombre función2()]
 

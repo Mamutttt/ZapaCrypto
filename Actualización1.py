@@ -19,7 +19,7 @@ def StockYLogística():
     SYL.configure(bg="pink")
     SYL.title("Stock y Logística")
 
-    BSYL = tkinter.Button(SYL, text="Volver", command=lambda: [Atrás(CONT), ()])
+    BSYL = tkinter.Button(SYL, text="Volver", command=lambda: [Atrás(SYL), ()])
     BSYL.place(x=850, y=5)
 
     ASYL = tkinter.Button(SYL, text="Stock Y \nLogística", height=5, width=12, command=lambda: [StockYLogística(), SYL.withdraw()])
@@ -343,24 +343,33 @@ LogoIMG = tkinter.Label(ventana, image=Logo)
 LogoIMG.place(x=350, y=100)
 Label(text="Administra tu empresa").place(x=390, y=310)
 
+Label(text="Usuario"). place(x=350, y=400)
+entry1 = Entry(ventana, width=20)
+entry1.place(x=350,y=425)
+
+Label(text="Contraseña"). place (x=350, y=460)
+Contraseña = Entry(ventana, width=20)
+Contraseña.place(x=350,y=485)
+
 SYL = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
 IMG1 = Button(ventana, image=SYL, borderwidth=0, command=StockYLogística)
-IMG1.place(x=170, y=400)
-Label(text="Stock y Logística").place(x=170, y=510)
+IMG1.place(x=150, y=150)
+Label(text="Stock y Logística").place(x=150, y=260)
 
 VYC = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
 IMG2 = Button(ventana, image=VYC, borderwidth=0, command=VentasYClientes)
-IMG2.place(x=320, y=400)
-Label(text="Ventas y Clientes").place(x=320, y=510)
+IMG2.place(x=150, y=300)
+Label(text="Ventas y Clientes").place(x=150, y=410)
 
 CYP = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
 IMG3 = Button(ventana, image=CYP, borderwidth=0, command=ComprasYProveedores)
-IMG3.place(x=470, y=400)
-Label(text="Compras y Proveedores").place(x=470, y=510)
+IMG3.place(x=650, y=150)
+Label(text="Compras y Proveedores").place(x=650, y=260)
 
 CONT = PhotoImage(file=r"C:\Users\Ryzen\Desktop\ASD.png")
 IMG4 = Button(ventana, image=CONT, borderwidth=0, command=Contabilidad)
-IMG4.place(x=620, y=400)
-Label(text="Contabilidad").place(x=620, y=510)
+IMG4.place(x=650, y=300)
+Label(text="Contabilidad").place(x=650, y=410)
 
 ventana.mainloop()
+

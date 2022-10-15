@@ -90,6 +90,21 @@ def Fun1SYL():
     F1SYL.title("Función 1")
 
 
+def mostrarArticulos():
+
+    VentanaArt=Tk()
+    VentanaArt.geometry("1000x700")
+    VentanaArt.configure(bg="pink")
+    Articulos=Listbox(VentanaArt,height=30,width=50)
+    Articulos.place(x=20,y=20)
+
+
+    print ("Mostrar articulos")
+
+def atencionAlCliente():
+    easygui.msgbox("Para comunicarse con atencion al cliente, comunicarse con: 11 2561-1025", title="Atencion al cliente")
+
+
 def VentasYClientes():
     VYC = Tk()
     VYC.geometry("900x600")
@@ -98,23 +113,19 @@ def VentasYClientes():
 
     BVYC = tkinter.Button(VYC, text="Volver", command=lambda: [Atrás(VYC), ()])
     BVYC.place(x=850, y=5)
-
     ASYL = tkinter.Button(VYC, text="Stock Y \nLogística", height=5, width=12, command=lambda: [StockYLogística(), VYC.withdraw()])
     ASYL.place(x=30, y=100)
-
-    AVYC = tkinter.Button(VYC, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [])
+    AVYC = tkinter.Button(VYC, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [VentasYClientes(), VYC.withdraw()])
     AVYC.place(x=30, y=200)
-
     ACYP = tkinter.Button(VYC, text="Compras Y \nProveedores", height=5, width=12, command=lambda: [ComprasYProveedores(), VYC.withdraw()])
     ACYP.place(x=30, y=300)
-
     ACONT = tkinter.Button(VYC, text="Contabilidad", height=5, width=12, command=lambda: [Contabilidad(), VYC.withdraw()])
     ACONT.place(x=30, y=400)
 
-    B1VYC = tkinter.Button(VYC, text="Funcionalidad 1  ", command="")
+    B1VYC = tkinter.Button(VYC, text="Mostrar articulos ", command=lambda: [mostrarArticulos(),])
     B1VYC.place(x=150, y=50)
 
-    B2VYC = tkinter.Button(VYC, text="Funcionalidad 2  ", command="")
+    B2VYC = tkinter.Button(VYC, text="Atencion al cliente  ", command=lambda:[atencionAlCliente()])
     B2VYC.place(x=150, y=75)
 
     B3VYC = tkinter.Button(VYC, text="Funcionalidad 3  ", command="")
@@ -123,41 +134,10 @@ def VentasYClientes():
     B4VYC = tkinter.Button(VYC, text="Funcionalidad 4  ", command="")
     B4VYC.place(x=150, y=125)
 
-    B5VYC = tkinter.Button(VYC, text="Funcionalidad 5  ", command="")
-    B5VYC.place(x=150, y=150)
 
-    B6VYC = tkinter.Button(VYC, text="Funcionalidad 6  ", command="")
-    B6VYC.place(x=150, y=175)
 
-    B7VYC = tkinter.Button(VYC, text="Funcionalidad 7  ", command="")
-    B7VYC.place(x=150, y=200)
-
-    B8VYC = tkinter.Button(VYC, text="Funcionalidad 8  ", command="")
-    B8VYC.place(x=150, y=225)
-
-    B9VYC = tkinter.Button(VYC, text="Funcionalidad 9  ", command="")
-    B9VYC.place(x=150, y=250)
-
-    B10VYC = tkinter.Button(VYC, text="Funcionalidad 10", command="")
-    B10VYC.place(x=150, y=275)
-
-    B11VYC = tkinter.Button(VYC, text="Funcionalidad 11", command="")
-    B11VYC.place(x=150, y=300)
-
-    B12VYC = tkinter.Button(VYC, text="Funcionalidad 12", command="")
-    B12VYC.place(x=150, y=325)
-
-    B13VYC = tkinter.Button(VYC, text="Funcionalidad 13", command="")
-    B13VYC.place(x=150, y=350)
-
-    B14VYC = tkinter.Button(VYC, text="Funcionalidad 14", command="")
-    B14VYC.place(x=150, y=375)
-
-    B15VYC = tkinter.Button(VYC, text="Funcionalidad 15", command="")
-    B15VYC.place(x=150, y=400)
-
-    B16VYC = tkinter.Button(VYC, text="Funcionalidad 16", command=lambda: [(), ()])
-    B16VYC.place(x=150, y=425)
+    #B16VYC = tkinter.Button(VYC, text="Funcionalidad 16", command=lambda: [(), ()])
+    #B16VYC.place(x=150, y=425)
 
     ventana.withdraw()
 

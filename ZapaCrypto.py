@@ -13,7 +13,7 @@ def VentasYClientes():
     VYC=Tk()
     VYC.geometry("1920x1080")   
     VYC.configure(bg="pink")
-    print("actualizacion3")
+    print("actualizacion4")
     VYC.mainloop()
 
 def ComprasYProveedores():

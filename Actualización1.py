@@ -346,6 +346,9 @@ Label(text="Contraseña"). place (x=350, y=460)
 Contraseña = Entry(ventana, width=20)
 Contraseña.place(x=350,y=485)
 
+Ingresar = Button(text="Ingresar")
+Ingresar.place(x=385, y=510)
+
 SYL = PhotoImage(file=r"Fotos/StockYLogística.png")
 IMG1 = Button(ventana, image=SYL, borderwidth=0, command=StockYLogística)
 IMG1.place(x=150, y=150)

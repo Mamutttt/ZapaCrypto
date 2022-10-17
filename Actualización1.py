@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import *
 import easygui
+from SyL import *
 ############ holis 2
 # command = lambda:[<nombre función1(), <nombre función2()]
 
@@ -34,7 +35,7 @@ def StockYLogística():
     ACONT = tkinter.Button(SYL, text="Contabilidad", height=5, width=12, command=lambda: [Contabilidad(), SYL.withdraw()])
     ACONT.place(x=30, y=400)
 
-    B1SYL = tkinter.Button(SYL, text="Funcionalidad 1  ", command=lambda: [Fun1SYL(),])
+    B1SYL = tkinter.Button(SYL, text="Mostrar Artículos", command=lambda: [mostrarArt(),])
     B1SYL.place(x=150, y=50)
 
     B2SYL = tkinter.Button(SYL, text="Funcionalidad 2  ", command="")

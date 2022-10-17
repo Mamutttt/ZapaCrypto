@@ -99,6 +99,9 @@ def mostrarArticulos():
     Articulos=Listbox(VentanaArt,height=30,width=50)
     Articulos.place(x=20,y=20)
 
+    label=Label(VentanaArt,text="Ingrese ID de los articulos a comprar")
+    label.place(x=650,y=50)
+
 
     print ("Mostrar articulos")
 

@@ -268,7 +268,7 @@ class Entorno_Grafico():
             if art[i]!=",":
                 datos.append(art[i])
         print(datos)
-        easygui.msgbox("Se registró la compra exitosamente de los articulos: "+datos, title="ZapaCrypto")
+        easygui.msgbox("Se registró la compra exitosamente de los articulos: "+art, title="ZapaCrypto")
 
 #Los datos que hay que pasar a stock, stock:
 

@@ -2,6 +2,7 @@ import tkinter
 from tkinter import *
 import easygui
 from SyL import *
+from Conexion_BDD_V2 import BDD
 ############ holis 2
 # command = lambda:[<nombre función1(), <nombre función2()]
 
@@ -35,7 +36,7 @@ def StockYLogística():
     ACONT = tkinter.Button(SYL, text="Contabilidad", height=5, width=12, command=lambda: [Contabilidad(), SYL.withdraw()])
     ACONT.place(x=30, y=400)
 
-    B1SYL = tkinter.Button(SYL, text="Mostrar Artículos", command=lambda: [mostrarArt(),])
+    B1SYL = tkinter.Button(SYL, text="Funcionalidad 1  ", command=lambda: [Fun1SYL(),])
     B1SYL.place(x=150, y=50)
 
     B2SYL = tkinter.Button(SYL, text="Funcionalidad 2  ", command="")
@@ -90,6 +91,8 @@ def Fun1SYL():
     F1SYL.geometry("900x600")
     F1SYL.title("Función 1")
 
+def registrarCompra():
+    pass
 
 def mostrarArticulos():
 
@@ -97,13 +100,35 @@ def mostrarArticulos():
     VentanaArt.geometry("1000x700")
     VentanaArt.configure(bg="pink")
     Articulos=Listbox(VentanaArt,height=30,width=50)
-    Articulos.place(x=20,y=20)
+    Articulos.place(x=20,y=33)
 
-    label=Label(VentanaArt,text="Ingrese ID de los articulos a comprar")
-    label.place(x=650,y=50)
+    BVYC = tkinter.Button(VentanaArt, text="Volver", command=lambda: [Atrás(VentanaArt)])
+    BVYC.place(x=950, y=5)
+
+    Labelart=Label(VentanaArt,text="ID", bg="PINK",font=("Helvetica",14))
+    Labelart.place(x=15,y=5)
+    Labelart3=Label(VentanaArt,text="Lista de articulos", bg="PINK",font=("Helvetica",14))
+    Labelart3.place(x=40,y=5)
+#Meter articulos en la lista
+    bdd = BDD()
+    conexion = bdd.conexion_bdd()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM Articulo")
+    respuesta = cursor.fetchall()
+    for x in respuesta:
+        Articulos.insert(END, x)
+
+    Labelart2=Label(VentanaArt,text="Eliga ID de articulos a comprar", bg="PINK",font=("Helvetica",14))
+    Labelart2.place(x=350,y=40)
+    Labelart4=Label(VentanaArt,text="(separado por comas)", bg="PINK",font=("Helvetica",8))
+    Labelart4.place(x=616,y=46)
+
+    Entryvyc=Entry(VentanaArt,text="...",width=50)
+    Entryvyc.place(x=350,y=70)
+    botonCompra=Button(VentanaArt,text="Comprar",command=registrarCompra,font=("Helvetica",18))
+    botonCompra.place(x=430,y=110)
 
 
-    print ("Mostrar articulos")
 
 def atencionAlCliente():
     easygui.msgbox("Para comunicarse con atencion al cliente, comunicarse con: 11 2561-1025", title="Atencion al cliente")
@@ -114,6 +139,8 @@ def VentasYClientes():
     VYC.geometry("900x600")
     VYC.configure(bg="pink")
     VYC.title("Ventas y Clientes")
+
+
 
     BVYC = tkinter.Button(VYC, text="Volver", command=lambda: [Atrás(VYC), ()])
     BVYC.place(x=850, y=5)
@@ -126,17 +153,18 @@ def VentasYClientes():
     ACONT = tkinter.Button(VYC, text="Contabilidad", height=5, width=12, command=lambda: [Contabilidad(), VYC.withdraw()])
     ACONT.place(x=30, y=400)
 
-    B1VYC = tkinter.Button(VYC, text="Mostrar articulos ", command=lambda: [mostrarArticulos(),])
-    B1VYC.place(x=150, y=50)
+    #banner = PhotoImage(file=r"Fotos/VYCbanner.png")
+    #imgbanner = Button(VYC, image=banner, command=mostrarArticulos)
+    #imgbanner.place(x=650, y=300)
 
-    B2VYC = tkinter.Button(VYC, text="Atencion al cliente  ", command=lambda:[atencionAlCliente()])
-    B2VYC.place(x=150, y=75)
 
-    B3VYC = tkinter.Button(VYC, text="Funcionalidad 3  ", command="")
-    B3VYC.place(x=150, y=100)
+    B1VYC = tkinter.Button(VYC, text="Mostrar articulos ",font=("Helvetica",36), command=lambda: [mostrarArticulos(),])
+    B1VYC.place(x=300, y=200)
 
-    B4VYC = tkinter.Button(VYC, text="Funcionalidad 4  ", command="")
-    B4VYC.place(x=150, y=125)
+    B2VYC = tkinter.Button(VYC, text="Atencion al cliente  ",font=("Helvetica",13), command=lambda:[atencionAlCliente()])
+    B2VYC.place(x=700, y=550)
+
+
 
 
 

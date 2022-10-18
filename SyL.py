@@ -4,7 +4,7 @@ def mostrarArt():
     bdd = BDD()
     conexion = bdd.conexion_bdd()
     cursor = conexion.cursor()
-    cursor.execute("SELECT <getCampo> FROM Articulo")
+    cursor.execute("SELECT * FROM Articulo")
     respuesta = cursor.fetchall()
     for x in respuesta:
         print(x)

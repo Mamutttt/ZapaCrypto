@@ -20,7 +20,8 @@ class BDD:
     código_postal = ""
           
     
-    def conexion_bdd(self):   
+    def conexion_bdd(self):
+
         #Establecemos la conexión con gestión de errores
         try:
             self.conexion = mysql.connector.connect(host= self.direccion_servidor,

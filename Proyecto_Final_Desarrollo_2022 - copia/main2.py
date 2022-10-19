@@ -399,53 +399,12 @@ class Entorno_Grafico():
         ACONT = tkinter.Button(SYL, text="Contabilidad", height=5, width=12, command=lambda: [self.Contabilidad(), SYL.withdraw()])
         ACONT.place(x=30, y=400)
 
-        B1SYL = tkinter.Button(SYL, text="Funcionalidad 1  ", command=lambda: [self.Fun1SYL(),])
+        B1SYL = tkinter.Button(SYL, text="Actualizar Stock", command=lambda: [self.Fun1SYL(),])
         B1SYL.place(x=150, y=50)
 
-        B2SYL = tkinter.Button(SYL, text="Funcionalidad 2  ", command="")
+        B2SYL = tkinter.Button(SYL, text="Actualizar Empleado", command="")
         B2SYL.place(x=150, y=75)
 
-        B3SYL = tkinter.Button(SYL, text="Funcionalidad 3  ", command="")
-        B3SYL.place(x=150, y=100)
-
-        B4SYL = tkinter.Button(SYL, text="Funcionalidad 4  ", command="")
-        B4SYL.place(x=150, y=125)
-
-        B5SYL = tkinter.Button(SYL, text="Funcionalidad 5  ", command="")
-        B5SYL.place(x=150, y=150)
-
-        B6SYL = tkinter.Button(SYL, text="Funcionalidad 6  ", command="")
-        B6SYL.place(x=150, y=175)
-
-        B7SYL = tkinter.Button(SYL, text="Funcionalidad 7  ", command="")
-        B7SYL.place(x=150, y=200)
-
-        B8SYL = tkinter.Button(SYL, text="Funcionalidad 8  ", command="")
-        B8SYL.place(x=150, y=225)
-
-        B9SYL = tkinter.Button(SYL, text="Funcionalidad 9  ", command="")
-        B9SYL.place(x=150, y=250)
-
-        B10SYL = tkinter.Button(SYL, text="Funcionalidad 10", command="")
-        B10SYL.place(x=150, y=275)
-
-        B11SYL = tkinter.Button(SYL, text="Funcionalidad 11", command="")
-        B11SYL.place(x=150, y=300)
-
-        B12SYL = tkinter.Button(SYL, text="Funcionalidad 12", command="")
-        B12SYL.place(x=150, y=325)
-
-        B13SYL = tkinter.Button(SYL, text="Funcionalidad 13", command="")
-        B13SYL.place(x=150, y=350)
-
-        B14SYL = tkinter.Button(SYL, text="Funcionalidad 14", command="")
-        B14SYL.place(x=150, y=375)
-
-        B15SYL = tkinter.Button(SYL, text="Funcionalidad 15", command="")
-        B15SYL.place(x=150, y=400)
-
-        B16SYL = tkinter.Button(SYL, text="Funcionalidad 16", command=lambda: [(), ()])
-        B16SYL.place(x=150, y=425)
 
         self.ventana.withdraw()
 
@@ -557,11 +516,6 @@ class Entorno_Grafico():
         self.CYP.title("Compras y Proveedores")
         self.CYP.configure(bg="BLUE")
 
-        SYL = PhotoImage(file=r"Fotos/StockYLogística.png")
-        IMG1 = Button(self.CYP, image=SYL, borderwidth=0, command=self.StockYLogística)
-        IMG1.place(x=300, y=150)
-        Label(text="Stock y Logística").place(x=150, y=260)
-
         BCYP = tkinter.Button(self.CYP, text="Volver", command=lambda: [self.Atrás(self.CYP), ()])
         BCYP.place(x=850, y=5)
 
@@ -585,47 +539,6 @@ class Entorno_Grafico():
 
         B3CYP = tkinter.Button(self.CYP, text="Funcionalidad 3  ", command="")
         B3CYP.place(x=150, y=100)
-
-        B4CYP = tkinter.Button(self.CYP, text="Funcionalidad 4  ", command="")
-        B4CYP.place(x=150, y=125)
-
-        B5CYP = tkinter.Button(self.CYP, text="Funcionalidad 5  ", command="")
-        B5CYP.place(x=150, y=150)
-
-        B6CYP = tkinter.Button(self.CYP, text="Funcionalidad 6  ", command="")
-        B6CYP.place(x=150, y=175)
-
-        B7CYP = tkinter.Button(self.CYP, text="Funcionalidad 7  ", command="")
-        B7CYP.place(x=150, y=200)
-
-        B8CYP = tkinter.Button(self.CYP, text="Funcionalidad 8  ", command="")
-        B8CYP.place(x=150, y=225)
-
-        B9CYP = tkinter.Button(self.CYP, text="Funcionalidad 9  ", command="")
-        B9CYP.place(x=150, y=250)
-
-        B10CYP = tkinter.Button(self.CYP, text="Funcionalidad 10", command="")
-        B10CYP.place(x=150, y=275)
-
-        B11CYP = tkinter.Button(self.CYP, text="Funcionalidad 11", command="")
-        B11CYP.place(x=150, y=300)
-
-        B12CYP = tkinter.Button(self.CYP, text="Funcionalidad 12", command="")
-        B12CYP.place(x=150, y=325)
-
-        B13CYP = tkinter.Button(self.CYP, text="Funcionalidad 13", command="")
-        B13CYP.place(x=150, y=350)
-
-        B14CYP= tkinter.Button(self.CYP, text="Funcionalidad 14", command="")
-        B14CYP.place(x=150, y=375)
-
-        B15CYP = tkinter.Button(self.CYP, text="Funcionalidad 15", command="")
-        B15CYP.place(x=150, y=400)
-
-        B16CYP = tkinter.Button(self.CYP, text="Funcionalidad 16", command=lambda: [])
-        B16CYP.place(x=150, y=425)
-
-        LogoEti = Label(self.CYP, text="Administra tu empresa").place(x=390, y=310)
 
         self.ventana.withdraw()
 
@@ -765,45 +678,6 @@ class Entorno_Grafico():
 
         B3CONT = tkinter.Button(CONT, text="Funcionalidad 3  ", command="")
         B3CONT.place(x=150, y=100)
-
-        B4CONT = tkinter.Button(CONT, text="Funcionalidad 4  ", command="")
-        B4CONT.place(x=150, y=125)
-
-        B5CONT = tkinter.Button(CONT, text="Funcionalidad 5  ", command="")
-        B5CONT.place(x=150, y=150)
-
-        B6CONT = tkinter.Button(CONT, text="Funcionalidad 6  ", command="")
-        B6CONT.place(x=150, y=175)
-
-        B7CONT = tkinter.Button(CONT, text="Funcionalidad 7  ", command="")
-        B7CONT.place(x=150, y=200)
-
-        B8CONT = tkinter.Button(CONT, text="Funcionalidad 8  ", command="")
-        B8CONT.place(x=150, y=225)
-
-        B9CONT = tkinter.Button(CONT, text="Funcionalidad 9  ", command="")
-        B9CONT.place(x=150, y=250)
-
-        B10CONT = tkinter.Button(CONT, text="Funcionalidad 10", command="")
-        B10CONT.place(x=150, y=275)
-
-        B11CONT = tkinter.Button(CONT, text="Funcionalidad 11", command="")
-        B11CONT.place(x=150, y=300)
-
-        B12CONT = tkinter.Button(CONT, text="Funcionalidad 12", command="")
-        B12CONT.place(x=150, y=325)
-
-        B13CONT = tkinter.Button(CONT, text="Funcionalidad 13", command="")
-        B13CONT.place(x=150, y=350)
-
-        B14CONT = tkinter.Button(CONT, text="Funcionalidad 14", command="")
-        B14CONT.place(x=150, y=375)
-
-        B15CONT = tkinter.Button(CONT, text="Funcionalidad 15", command="")
-        B15CONT.place(x=150, y=400)
-
-        B16CONT = tkinter.Button(CONT, text="Funcionalidad 16", command=lambda: [(), ()])
-        B16CONT.place(x=150, y=425)
 
         self.ventana.withdraw()
 

@@ -162,18 +162,28 @@ class Entorno_Grafico():
         self.obj_conexion.usuario = self.txt_usuario.get("1.0","end-1c")
         self.obj_conexion.contraseña = self.txt_contra.get("1.0","end-1c")
 
-        #El resultado del cotejo de datos en la bdd  
-        #nos indicará el resultado de la operación hecha
-        posicion = self.obj_conexion.validar_login()
-        easygui.msgbox(self.mensajes[posicion], title = "Login")
+        labels = ['Usuario', 'Contraseña']
+        lista = [self.obj_conexion.usuario, self.obj_conexion.contraseña]
+        
+        vacios = self.validar_ingresos(labels, lista)
+        
+        if(len(vacios)==0):
+            #El resultado del cotejo de datos en la bdd  
+            #nos indicará el resultado de la operación hecha
+            posicion = self.obj_conexion.validar_login()
+            easygui.msgbox(self.mensajes[posicion], title = "Login")
 
-        #Si la validación fue correcta, el usuario inicia su
-        #sesión, cargando por default la pantalla de Stock y Logística
-        if(posicion==3):
-            ventana.destroy()
-            self.obj_conexion.recuperar_rol()
-            self.StockYLogística()
-
+            #Si la validación fue correcta, el usuario inicia su
+            #sesión, cargando por default la pantalla de Stock y Logística
+            if(posicion==3):
+                ventana.destroy()
+                self.obj_conexion.recuperar_rol()
+                self.StockYLogística()
+                
+        else:
+            mensaje = "Ingreso incorrecto. Por favor complete los campos: " + str(vacios)
+            easygui.msgbox(mensaje, title = "Login") 
+            
         
     def CargarRegistro(self):
         ventanaR = Tk()

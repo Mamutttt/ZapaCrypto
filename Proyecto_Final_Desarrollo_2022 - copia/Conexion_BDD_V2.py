@@ -46,7 +46,6 @@ class BDD:
         # 2 - Usuario existente, contra incorrecta
         # 3 - Usuario y contraseña correctos 
         consulta = 1
-        print(self.contraseña)
         try:
             #Armamos la consulta
             cursor = self.conexion.cursor()
@@ -173,37 +172,3 @@ class BDD:
 
         cursor.close()
         conexion.close()
-    
-if __name__=='__main__':
-    obj_conexion = BDD()
-    conexion = obj_conexion.conectar_bdd()
-
-    #Listado de mensajes a imprimir según el resultado de la validación
-    mensajes = ["Se produjo un error en la validación."
-                ,"El usuario no existe."
-                ,"La contraseña es incorrecta."
-                ,"Ingreso correcto. Bienvenido al sistema."]
-    
-    #Datos de prueba que deberían ser recuperados con un txtnombrelabel.get()
-    obj_conexion.usuario = "caro2"
-    obj_conexion.contraseña = "1234567"
-
-    #Prueba de validación de de datos, con su correspondiente mensaje
-    posicion= obj_conexion.validar_login()
-    print(mensajes[posicion])
-
-    obj_conexion.nombre = "Carolina"
-    obj_conexion.apellido = "Linares"
-    obj_conexion.dni = "44939978"
-    obj_conexion.mail = "carolinares003@gmail.com"
-    obj_conexion.teléfono = "1127354645"
-    obj_conexion.código_postal = "1407"
-    
-
-    print(obj_conexion.registrar_usuario())
-    
-    obj_conexion.validar_login()
-    
-    obj_conexion.recuperar_rol()
-
-    

@@ -79,20 +79,22 @@ class BDD:
         finally:
             return consulta
 
-    def registrar_usuario(self):
-        mensaje = ""
+    def registrar_usuario(self):  
+        consulta = 0
         try:
             #Validamos que no exista el usuario
             if(self.validar_login()>1):
-                mensaje = "El nombre de usuario dado ya existe. Por favor, elija otro."
+                consulta = 1
+                #mensaje = "El nombre de usuario dado ya existe. Por favor, elija otro."
 
             #Validamos que no haya ocurrido un error en la validación
             elif(self.validar_login()==0):
-                mensaje = "Lo sentimos, hubo un error inesperado en el sistema. Vuelva a intentarlo."
+                consulta = 2
+                #mensaje = "Lo sentimos, hubo un error inesperado en el sistema. Vuelva a intentarlo."
 
             #Registramos al usuario
             else:
-                cursor = conexion.cursor()
+                cursor = self.conexion.cursor()
                 sp = """INSERT INTO
                         Usuario(usuario
                                 , contra
@@ -117,16 +119,18 @@ class BDD:
                 self.conexion.commit()
 
                 cursor.close()
-                
-                mensaje = "Se registro al usuario correctamente."
+
+                consulta = 3
+                #mensaje = "Se registro al usuario correctamente."
 
         except Exception as e:
-            mensaje = str(e)
+            print(e)
+            #consulta = 0
 
         finally:
-            print(mensaje)
-            return mensaje
+            return consulta
             
+        
                            
     def recuperar_rol(self):
         try:

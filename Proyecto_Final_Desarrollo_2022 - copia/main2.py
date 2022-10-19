@@ -351,7 +351,7 @@ class Entorno_Grafico():
         
 
 #Compras y Proveedores
-    def ComprasYProveedores(self):
+def ComprasYProveedores(self):
         self.CYP = Toplevel()
         self.CYP.geometry("900x600")
         self.CYP.title("Compras y Proveedores")
@@ -444,8 +444,8 @@ class Entorno_Grafico():
         #Labelart3.place(x=40, y=5)
         # Meter articulos en la lista
         bdd = BDD()
-        conexion = bdd.conectar_bdd()
-        cursor = conexion.cursor()
+        self.conexion = bdd.conectar_bdd()
+        cursor = self.conexion.cursor()
         cursor.execute("Select * from Proveedor; ")
 
         proveedor = cursor.fetchall()
@@ -454,7 +454,7 @@ class Entorno_Grafico():
             Provee.insert(END, x)
 
         cursor.close()
-        conexion.close()
+        self.conexion.close()
 
     def AgregarArtProv(self):
 
@@ -471,12 +471,32 @@ class Entorno_Grafico():
         #cursor = conexion.cursor()
         #Agrego = cursor.execute("INSERT INTO Articulo VALUES (<getIdArt>, <getIdArt>, <getIdProd>, <getTalle>, <getColor>)")
 
-
         #cursor.close()
         #conexion.close()
 
-        #B16CYP = tkinter.Button(self.ArtProv, text="Aceptar", command=Agrego)
-        #B16CYP.place(x=525, y=260)
+        cursor = self.conexion.cursor()
+        sp = """INSERT INTO
+                Proveedor(talle
+                        , color
+                        , nombre
+                        , precio
+                        , id_proveedor
+                        )
+                VALUES('""" + self.Talle + """'
+                        ,'""" + self.Color + """'
+                        ,'""" + self.Nombre + """'
+                        ,'""" + self.Precio + """'
+                        ,'""" + self.IDProv + """'
+                        );"""
+
+        cursor.execute(sp)
+        self.conexion.commit()
+
+        cursor.close()
+
+
+        B16CYP = tkinter.Button(self.ArtProv, text="Aceptar", command=sp)
+        B16CYP.place(x=525, y=260)
 
         LTalle = Label(self.ArtProv, text="Talle: ", font=("Helvetica", 12))
         LTalle.place(x=130, y=200)
@@ -507,9 +527,6 @@ class Entorno_Grafico():
         IDProvv = StringVar(value="")
         IDProv = Entry(self.ArtProv, textvariable=IDProvv, width=50)
         IDProv.place(x=200, y=320)
-
-
-
 
 
 

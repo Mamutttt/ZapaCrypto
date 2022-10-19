@@ -102,6 +102,14 @@ class Entorno_Grafico():
         ventana_a_cerrar.destroy()
         self.ventana.deiconify()
 
+        
+    def validar_ingresos(self, labels, lista):
+        vacios = []
+        for i in range(0, len(lista)):
+            if not lista[i]:
+                vacios.append(labels[i])
+
+        return vacios
 
 #Sesión de usuario
     def CargarInicio(self):
@@ -179,6 +187,181 @@ class Entorno_Grafico():
         txt_usuario = Text(ventanaR,
                            borderwidth=0)
         txt_usuario.pack()
+#Registro      
+    def CargarRegistro(self):
+        #Ventana de inicio
+        ventanaR = Toplevel()
+        ventanaR.geometry("340x520")
+        ventanaR.configure(bg="pink")
+        ventanaR.title("ZapaCrypto61 - Registro")
+        
+        ventanaR.iconbitmap("Fotos/Logo.ico")
+
+        #Detalles de usuario
+        lbl_usuario = Label(ventanaR,
+                            bg = "pink", borderwidth=0,
+                            font=('Helvetica', 12),
+                            #font=fontStyle, fg = "black",
+                            text = "Usuario: ")
+        lbl_usuario.place(x=60, y=40)
+
+        self.txt_usuario = Text(ventanaR,
+                           font=('Century 12'),
+                           borderwidth=0)
+        self.txt_usuario.place(x=150, y=40, width=100, height=20)
+
+        
+        lbl_contra = Label(ventanaR,
+                           bg = "pink", borderwidth=0,
+                           font=('Helvetica', 12),
+                           text = "Contraseña: ")
+        lbl_contra.place(x=40, y=90)
+        
+        self.txt_contra = Text(ventanaR,
+                          font=('Century 12'),
+                          borderwidth=0)
+        self.txt_contra.place(x=150, y=90, width=100, height=20)
+
+        #Datos persona
+        lbl_nombre = Label(ventanaR,
+                            bg = "pink", borderwidth=0,
+                            font=('Helvetica', 12),
+                            #font=fontStyle, fg = "black",
+                            text = "Nombre: ")
+        lbl_nombre.place(x=60, y=140)
+
+        self.txt_nombre = Text(ventanaR,
+                           font=('Century 12'),
+                           borderwidth=0)
+        self.txt_nombre.place(x=150, y=140, width=100, height=20)
+
+        
+        lbl_apellido = Label(ventanaR,
+                           bg = "pink", borderwidth=0,
+                           font=('Helvetica', 12),
+                           text = "Apellido: ")
+        lbl_apellido.place(x=60, y=190)
+        
+        self.txt_apellido = Text(ventanaR,
+                          font=('Century 12'),
+                          borderwidth=0)
+        self.txt_apellido.place(x=150, y=190, width=100, height=20)
+
+        # Datos contacto
+        lbl_dni = Label(ventanaR,
+                            bg = "pink", borderwidth=0,
+                            font=('Helvetica', 12),
+                            #font=fontStyle, fg = "black",
+                            text = "DNI: ")
+        lbl_dni.place(x=70, y=240)
+
+        self.txt_dni = Text(ventanaR,
+                           font=('Century 12'),
+                           borderwidth=0)
+        self.txt_dni.place(x=150, y=240, width=150, height=20)
+
+        
+        lbl_mail = Label(ventanaR,
+                           bg = "pink", borderwidth=0,
+                           font=('Helvetica', 12),
+                           text = "Mail: ")
+        lbl_mail.place(x=70, y=290)
+        
+        self.txt_mail = Text(ventanaR,
+                          font=('Century 12'),
+                          borderwidth=0)
+        self.txt_mail.place(x=150, y=290, width=150, height=20)
+
+
+        # Datos contacto 2
+        lbl_telefono = Label(ventanaR,
+                        bg = "pink", borderwidth=0,
+                        font=('Helvetica', 12),
+                        #font=fontStyle, fg = "black",
+                        text = "Telefono: ")
+        lbl_telefono.place(x=50, y=340)
+
+        self.txt_telefono = Text(ventanaR,
+                           font=('Century 12'),
+                           borderwidth=0)
+        self.txt_telefono.place(x=150, y=340, width=150, height=20)
+
+        
+        lbl_codigo_postal = Label(ventanaR,
+                           bg = "pink", borderwidth=0,
+                           font=('Helvetica', 12),
+                           text = "Codigo postal: ")
+        lbl_codigo_postal.place(x=30, y=390)
+        
+        self.txt_codigo_postal = Text(ventanaR,
+                          font=('Century 12'),
+                          borderwidth=0)
+        self.txt_codigo_postal.place(x=150, y=390, width=150, height=20)
+
+
+        #Boton de validación
+        btn_inicio = Button(ventanaR,
+                            image= self.imagen_final,
+                            bg = "pink", borderwidth=0,
+                            font=('Helvetica', 10),
+                            text = "Registrarse", compound='center',
+                            command= partial(self.registrar_usuario, ventanaR))
+        
+        btn_inicio.place(x=90, y=430)
+
+        
+    def registrar_usuario(self, ventana):
+        #Recuperamos los datos del usuario
+        self.obj_conexion.usuario = self.txt_usuario.get("1.0","end-1c")
+        self.obj_conexion.contraseña = self.txt_contra.get("1.0","end-1c")
+
+        self.obj_conexion.nombre = self.txt_nombre.get("1.0","end-1c")
+        self.obj_conexion.apellido = self.txt_apellido.get("1.0","end-1c")
+        
+        self.obj_conexion.dni = str(self.txt_dni.get("1.0","end-1c"))
+        self.obj_conexion.mail = str(self.txt_mail.get("1.0","end-1c"))
+        self.obj_conexion.teléfono = str(self.txt_telefono.get("1.0","end-1c"))
+        self.obj_conexion.codigo_postal = str(self.txt_codigo_postal.get("1.0","end-1c"))
+
+        #Validamos que no haya datos nulos
+        labels = ['Usuario', 'Contraseña', 'Nombre', 'Apellido', 'DNI', 'Mail', 'Teléfono', 'Código Postal']
+        lista = [self.obj_conexion.usuario,
+                 self.obj_conexion.contraseña,
+                 self.obj_conexion.nombre,
+                 self.obj_conexion.apellido,
+                 self.obj_conexion.dni,
+                 self.obj_conexion.teléfono,
+                 self.obj_conexion.codigo_postal]
+        
+        vacios = self.validar_ingresos(labels, lista)
+        
+        if(len(vacios)==0):
+            #Validamos que se ingresen los datos numéricos requeridos
+            #requeridos como tal mediante un manejo de excepciones
+            try:
+                self.obj_conexion.dni = int(self.txt_dni.get("1.0","end-1c"))
+                self.obj_conexion.teléfono = int(self.txt_telefono.get("1.0","end-1c"))
+                
+                mensajes = ["Lo sentimos, se produjo un error en el registro. Intente nuevamente."
+                            , "El nombre de usuario dado ya existe. Por favor, elija otro."
+                            , "Lo sentimos, hubo un error inesperado en el sistema. Intente nuevamente."
+                            , "¡Bienvenido al sistema, " + self.obj_conexion.usuario + "!"]
+                
+
+                #Validamos que el usuario no exista
+                posicion = self.obj_conexion.registrar_usuario()
+                easygui.msgbox(mensajes[posicion], title = "Registro")
+
+                if(posicion==3):
+                    ventana.destroy()
+                    self.StockYLogística()
+                    
+            except Exception as e:
+                easygui.msgbox("Recuerde que los campos de teléfono y dni deben ser numéricos.", title = "Registro")
+
+        else:
+            mensaje = "Ingreso incorrecto. Por favor complete los campos: " + str(vacios)
+            easygui.msgbox(mensaje, title = "Registro")  
 
 
 #Stock y Logística

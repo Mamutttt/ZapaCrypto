@@ -13,6 +13,7 @@ import warnings
 from functools import partial
 
 from Conexion_BDD_V2 import BDD
+from SyL import *
 
 ############ holis 2
 # command = lambda:[<nombre función1(), <nombre función2()]
@@ -451,7 +452,13 @@ class Entorno_Grafico():
     def Fun1SYL(self):
         F1SYL = Tk()
         F1SYL.geometry("900x600")
-        F1SYL.title("Función 1")
+        F1SYL.title("adfs")
+        var = ""
+        mostrarArt(var)
+        lblMostrarArt = Label(F1SYL, textvariable=var, relief=RAISED)
+        lblMostrarArt.pack()
+        F1SYL.mainloop()
+
 
     def registrarCompra(self,art):
 
@@ -544,7 +551,7 @@ class Entorno_Grafico():
         
 
 #Compras y Proveedores
-def ComprasYProveedores(self):
+    def ComprasYProveedores(self):
         self.CYP = Toplevel()
         self.CYP.geometry("900x600")
         self.CYP.title("Compras y Proveedores")
@@ -724,6 +731,8 @@ def ComprasYProveedores(self):
 
 
 #Contabilidad
+
+
     def Contabilidad(self):
         CONT = Tk()
         CONT.geometry("900x600")
@@ -733,24 +742,25 @@ def ComprasYProveedores(self):
         BCONT = tkinter.Button(CONT, text="Volver", command=lambda: [self.Atrás(CONT), ()])
         BCONT.place(x=850, y=5)
 
-
-        ASYL = tkinter.Button(CONT, text="Stock Y \nLogística", height=5, width= 12, command=lambda: [self.StockYLogística(), CONT.withdraw()])
+        ASYL = tkinter.Button(CONT, text="Stock Y \nLogística", height=5, width=12,
+                              command=lambda: [self.StockYLogística(), CONT.withdraw()])
         ASYL.place(x=30, y=100)
 
-        AVYC = tkinter.Button(CONT, text="Ventas Y \nClientes", height=5, width= 12, command=lambda: [self.VentasYClientes(), CONT.withdraw()])
+        AVYC = tkinter.Button(CONT, text="Ventas Y \nClientes", height=5, width=12,
+                              command=lambda: [self.VentasYClientes(), CONT.withdraw()])
         AVYC.place(x=30, y=200)
 
-        ACYP = tkinter.Button(CONT, text="Compras Y \nProveedores", height=5, width= 12, command=lambda: [self.ComprasYProveedores(), CONT.withdraw()])
+        ACYP = tkinter.Button(CONT, text="Compras Y \nProveedores", height=5, width=12,
+                              command=lambda: [self.ComprasYProveedores(), CONT.withdraw()])
         ACYP.place(x=30, y=300)
 
         ACONT = tkinter.Button(CONT, text="Contabilidad", height=5, width=12, command=lambda: [])
         ACONT.place(x=30, y=400)
 
-
-        B1CONT = tkinter.Button(CONT, text="Funcionalidad 1  ", command=lambda: [self.Fun1Contabilidad(),])
+        B1CONT = tkinter.Button(CONT, text="Funcionalidad 1  ", command=lambda: [self.Fun1Contabilidad(), ])
         B1CONT.place(x=150, y=50)
 
-        B2CONT = tkinter.Button(CONT, text="Funcionalidad 2  ", command="")
+        B2CONT = tkinter.Button(CONT, text="Funcionalidad 2  ", command=lambda: [self.Fun2Contabilidad(), ])
         B2CONT.place(x=150, y=75)
 
         B3CONT = tkinter.Button(CONT, text="Funcionalidad 3  ", command="")
@@ -795,13 +805,64 @@ def ComprasYProveedores(self):
         B16CONT = tkinter.Button(CONT, text="Funcionalidad 16", command=lambda: [(), ()])
         B16CONT.place(x=150, y=425)
 
-
         self.ventana.withdraw()
 
     def Fun1Contabilidad(self):
-        F1C = Tk()
-        F1C.geometry("900x600")
-        F1C.title("Función 1")
+        manzanas = [20, 10, 25, 60]
+        nombres = ["Activos Fijos", "Activos Corrientes", "Gastos", "Impuestos"]
+        plt.pie(manzanas, labels=nombres)
+        plt.show()
+
+        bdd = BDD()
+        conexion = bdd.conectar_bdd()
+        cursor = conexion.cursor()
+        cursor.execute("SELECT precio FROM Producto")
+
+    def Fun2Contabilidad(self):
+        self.Costo = Tk()
+        self.Costo.geometry("900x600")
+        self.Costo.title("Contabilidad")
+        self.Costo.configure(bg="BLUE")
+
+        Labelcost = Label(self.Costo, text="Completar todos los campos antes de continuar", bg="CYAN",
+                          font=("Helvetica", 20))
+        Labelcost.place(x=250, y=5)
+
+        # bdd = BDD()
+        # conexion = bdd.conectar_bdd()
+        # cursor = conexion.cursor()
+        # Agrego = cursor.execute("INSERT INTO Costo VALUES (<getIdcosto>, <getTitulo>, <getMonto>, <getDescripcion>")
+
+        # cursor.close()
+        # conexion.close()
+
+        # B16CYP = tkinter.Button(self.Costo, text="Aceptar", command=Agrego)
+        # B16CYP.place(x=525, y=260)
+
+        LIDCosto = Label(self.Costo, text="Id Costo: ", font=("Helvetica", 12))
+        LIDCosto.place(x=130, y=200)
+        IDCostoo = StringVar(value="")
+        IDCosto = Entry(self.Costo, textvariable=IDCostoo, width=50)
+
+        IDCosto.place(x=200, y=200)
+
+        LDescripcion = Label(self.Costo, text="Descripcion: ", font=("Helvetica", 12))
+        LDescripcion.place(x=130, y=230)
+        Descripcionn = StringVar(value="")
+        Descripcion = Entry(self.Costo, textvariable=Descripcionn, width=50)
+        Descripcion.place(x=200, y=230)
+
+        LTitulo = Label(self.Costo, text="Titulo: ", font=("Helvetica", 12))
+        LTitulo.place(x=130, y=260)
+        tituloo = StringVar(value="")
+        titulo = Entry(self.Costo, textvariable=tituloo, width=50)
+        titulo.place(x=200, y=260)
+
+        LMonto = Label(self.Costo, text="monto: ", font=("Helvetica", 12))
+        LMonto.place(x=130, y=290)
+        montoo = StringVar(value="")
+        monto = Entry(self.Costo, textvariable=montoo, width=50)
+        monto.place(x=200, y=290)
 
 
 #Main

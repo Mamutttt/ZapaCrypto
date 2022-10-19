@@ -157,7 +157,18 @@ class BDD:
             
         except Exception as e:
             print(e)
-            
+
+
+        cursor = conexion.cursor()
+        cursor.execute("Select * from Proveedor; ")
+
+        proveedor = cursor.fetchall()
+
+        for proveedor in proveedor:
+            print(proveedor)
+
+        cursor.close()
+        conexion.close()
     
 if __name__=='__main__':
     obj_conexion = BDD()

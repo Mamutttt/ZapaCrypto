@@ -108,14 +108,14 @@ class Entorno_Grafico():
         #Ventana de inicio
         ventanaI = Toplevel()
         ventanaI.geometry("300x225")
-        ventanaI.configure(bg="pink")
+        ventanaI.configure(bg="BLUE")
         ventanaI.title("ZapaCrypto61 - Login")
         
         ventanaI.iconbitmap("Fotos/Logo.ico")
 
         #Detalles de usuario
         lbl_usuario = Label(ventanaI,
-                            bg = "pink", borderwidth=0,
+                            bg = "CYAN", borderwidth=0,
                             font=('Helvetica', 12),
                             #font=fontStyle, fg = "black",
                             text = "Usuario: ")
@@ -128,7 +128,7 @@ class Entorno_Grafico():
 
         
         lbl_contra = Label(ventanaI,
-                           bg = "pink", borderwidth=0,
+                           bg = "CYAN", borderwidth=0,
                            font=('Helvetica', 12),
                            text = "Contraseña: ")
         lbl_contra.place(x=40, y=90)
@@ -142,7 +142,7 @@ class Entorno_Grafico():
         #Boton de validación
         btn_inicio = Button(ventanaI,
                             image= self.imagen_final,
-                            bg = "pink", borderwidth=0,
+                            bg = "CYAN", borderwidth=0,
                             font=('Helvetica', 10),
                             text = "Iniciar sesión", compound='center',
                             command= partial(self.validar_login, ventanaI))
@@ -171,7 +171,7 @@ class Entorno_Grafico():
         ventanaR = Tk()
         
         lbl_usuario = Label(ventanaR,
-                            bg = "pink", borderwidth=0,
+                            bg = "CYAN", borderwidth=0,
                             #font=fontStyle, fg = "black",
                             text = "Usuario: ")
         lbl_usuario.pack()
@@ -185,8 +185,10 @@ class Entorno_Grafico():
     def StockYLogística(self):
         SYL = Tk()
         SYL.geometry("900x600")
-        SYL.configure(bg="pink")
+        SYL.configure(bg="BLUE")
         SYL.title("Stock y Logística")
+
+
 
         BSYL = tkinter.Button(SYL, text="Volver", command=lambda: [self.Atrás(SYL), ()])
         BSYL.place(x=850, y=5)
@@ -277,16 +279,16 @@ class Entorno_Grafico():
 
         self.ventanaArt=Tk()
         self.ventanaArt.geometry("1000x700")
-        self.ventanaArt.configure(bg="pink")
+        self.ventanaArt.configure(bg="BLUE")
         Articulos=Listbox(self.ventanaArt,height=30,width=50)
         Articulos.place(x=20,y=33)
 
-        BVYC = tkinter.Button(self.ventanaArt, text="Volver", command=lambda: [Atrás(self.ventanaArt)])
+        BVYC = tkinter.Button(self.ventanaArt, text="Volver", command=lambda: [self.Atrás(self.ventanaArt)])
         BVYC.place(x=950, y=5)
 
-        Labelart = Label(self.ventanaArt, text="ID", bg="PINK", font=("Helvetica", 14))
+        Labelart = Label(self.ventanaArt, text="ID", bg="CYAN", font=("Helvetica", 14))
         Labelart.place(x=15, y=5)
-        Labelart3 = Label(self.ventanaArt, text="Lista de articulos", bg="PINK", font=("Helvetica", 14))
+        Labelart3 = Label(self.ventanaArt, text="Lista de articulos", bg="CYAN", font=("Helvetica", 14))
         Labelart3.place(x=40, y=5)
         # Meter articulos en la lista
         bdd = BDD()
@@ -297,9 +299,9 @@ class Entorno_Grafico():
         for x in respuesta:
             Articulos.insert(END, x)
 
-        Labelart2 = Label(self.ventanaArt, text="Eliga ID de articulos a comprar", bg="PINK", font=("Helvetica", 14))
+        Labelart2 = Label(self.ventanaArt, text="Elija ID de articulos a comprar", bg="CYAN", font=("Helvetica", 14))
         Labelart2.place(x=350, y=40)
-        Labelart4 = Label(self.ventanaArt, text="(separado por comas)", bg="PINK", font=("Helvetica", 8))
+        Labelart4 = Label(self.ventanaArt, text="(separado por comas)", bg="CYAN", font=("Helvetica", 8))
         Labelart4.place(x=616, y=46)
 
         Entryvyc = Entry(self.ventanaArt, text="...", width=50)
@@ -320,7 +322,7 @@ class Entorno_Grafico():
     def VentasYClientes(self):
         VYC = Tk()
         VYC.geometry("900x600")
-        VYC.configure(bg="pink")
+        VYC.configure(bg="BLUE")
         VYC.title("Ventas y Clientes")
 
         BVYC = tkinter.Button(VYC, text="Volver", command=lambda: [self.Atrás(VYC), ()])
@@ -350,88 +352,172 @@ class Entorno_Grafico():
 
 #Compras y Proveedores
     def ComprasYProveedores(self):
-        CYP = Tk()
-        CYP.geometry("900x600")
-        CYP.title("Compras y Proveedores")
+        self.CYP = Toplevel()
+        self.CYP.geometry("900x600")
+        self.CYP.title("Compras y Proveedores")
+        self.CYP.configure(bg="BLUE")
 
-        BCYP = tkinter.Button(CYP, text="Volver", command=lambda: [self.Atrás(CYP), ()])
+        SYL = PhotoImage(file=r"Fotos/StockYLogística.png")
+        IMG1 = Button(self.CYP, image=SYL, borderwidth=0, command=self.StockYLogística)
+        IMG1.place(x=300, y=150)
+        Label(text="Stock y Logística").place(x=150, y=260)
+
+        BCYP = tkinter.Button(self.CYP, text="Volver", command=lambda: [self.Atrás(self.CYP), ()])
         BCYP.place(x=850, y=5)
 
-        ASYL = tkinter.Button(CYP, text="Stock Y \nLogística", height=5, width=12, command=lambda: [self.StockYLogística(), CYP.withdraw()])
+        ASYL = tkinter.Button(self.CYP, text="Stock Y \nLogística", height=5, width=12, command=lambda: [self.StockYLogística(), self.CYP.withdraw()])
         ASYL.place(x=30, y=100)
 
-        AVYC = tkinter.Button(CYP, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [self.VentasYClientes(), CYP.withdraw()])
+        AVYC = tkinter.Button(self.CYP, text="Ventas Y \nClientes", height=5, width=12, command=lambda: [self.VentasYClientes(), self.CYP.withdraw()])
         AVYC.place(x=30, y=200)
 
-        ACYP = tkinter.Button(CYP, text="Compras Y \nProveedores", height=5, width=12, command=lambda: [])
+        ACYP = tkinter.Button(self.CYP, text="Compras Y \nProveedores", height=5, width=12, command=lambda: [])
         ACYP.place(x=30, y=300)
 
-        ACONT = tkinter.Button(CYP, text="Contabilidad", height=5, width=12, command=lambda: [self.Contabilidad(), CYP.withdraw()])
+        ACONT = tkinter.Button(self.CYP, text="Contabilidad", height=5, width=12, command=lambda: [self.Contabilidad(), self.CYP.withdraw()])
         ACONT.place(x=30, y=400)
 
-        B1CYP = tkinter.Button(CYP, text="Funcionalidad 1  ", command=lambda: [self.Proveedores(),])
+        B1CYP = tkinter.Button(self.CYP, text="Proveedores         ", command=lambda: [self.Proveedores(),])
         B1CYP.place(x=150, y=50)
 
-        B2CYP = tkinter.Button(CYP, text="Funcionalidad 2  ", command="")
+        B2CYP = tkinter.Button(self.CYP, text="Agregar Artículos", command=lambda: [self.AgregarArtProv(),])
         B2CYP.place(x=150, y=75)
 
-        B3CYP = tkinter.Button(CYP, text="Funcionalidad 3  ", command="")
+        B3CYP = tkinter.Button(self.CYP, text="Funcionalidad 3  ", command="")
         B3CYP.place(x=150, y=100)
 
-        B4CYP = tkinter.Button(CYP, text="Funcionalidad 4  ", command="")
+        B4CYP = tkinter.Button(self.CYP, text="Funcionalidad 4  ", command="")
         B4CYP.place(x=150, y=125)
 
-        B5CYP = tkinter.Button(CYP, text="Funcionalidad 5  ", command="")
+        B5CYP = tkinter.Button(self.CYP, text="Funcionalidad 5  ", command="")
         B5CYP.place(x=150, y=150)
 
-        B6CYP = tkinter.Button(CYP, text="Funcionalidad 6  ", command="")
+        B6CYP = tkinter.Button(self.CYP, text="Funcionalidad 6  ", command="")
         B6CYP.place(x=150, y=175)
 
-        B7CYP = tkinter.Button(CYP, text="Funcionalidad 7  ", command="")
+        B7CYP = tkinter.Button(self.CYP, text="Funcionalidad 7  ", command="")
         B7CYP.place(x=150, y=200)
 
-        B8CYP = tkinter.Button(CYP, text="Funcionalidad 8  ", command="")
+        B8CYP = tkinter.Button(self.CYP, text="Funcionalidad 8  ", command="")
         B8CYP.place(x=150, y=225)
 
-        B9CYP = tkinter.Button(CYP, text="Funcionalidad 9  ", command="")
+        B9CYP = tkinter.Button(self.CYP, text="Funcionalidad 9  ", command="")
         B9CYP.place(x=150, y=250)
 
-        B10CYP = tkinter.Button(CYP, text="Funcionalidad 10", command="")
+        B10CYP = tkinter.Button(self.CYP, text="Funcionalidad 10", command="")
         B10CYP.place(x=150, y=275)
 
-        B11CYP = tkinter.Button(CYP, text="Funcionalidad 11", command="")
+        B11CYP = tkinter.Button(self.CYP, text="Funcionalidad 11", command="")
         B11CYP.place(x=150, y=300)
 
-        B12CYP = tkinter.Button(CYP, text="Funcionalidad 12", command="")
+        B12CYP = tkinter.Button(self.CYP, text="Funcionalidad 12", command="")
         B12CYP.place(x=150, y=325)
 
-        B13CYP = tkinter.Button(CYP, text="Funcionalidad 13", command="")
+        B13CYP = tkinter.Button(self.CYP, text="Funcionalidad 13", command="")
         B13CYP.place(x=150, y=350)
 
-        B14CYP= tkinter.Button(CYP, text="Funcionalidad 14", command="")
+        B14CYP= tkinter.Button(self.CYP, text="Funcionalidad 14", command="")
         B14CYP.place(x=150, y=375)
 
-        B15CYP = tkinter.Button(CYP, text="Funcionalidad 15", command="")
+        B15CYP = tkinter.Button(self.CYP, text="Funcionalidad 15", command="")
         B15CYP.place(x=150, y=400)
 
-        B16CYP = tkinter.Button(CYP, text="Funcionalidad 16", command=lambda: [])
+        B16CYP = tkinter.Button(self.CYP, text="Funcionalidad 16", command=lambda: [])
         B16CYP.place(x=150, y=425)
 
-        LogoEti = Label(CYP, text="Administra tu empresa").place(x=390, y=310)
+        LogoEti = Label(self.CYP, text="Administra tu empresa").place(x=390, y=310)
 
         self.ventana.withdraw()
 
     def Proveedores(self):
-        Prov = Tk()
-        Prov.geometry("900x600")
-        Prov.title("Compras y Proveedores")
+        self.Prov = Tk()
+        self.Prov.geometry("900x600")
+        self.Prov.title("Compras y Proveedores")
+        self.Prov.configure(bg="BLUE")
+
+        Provee = Listbox(self.Prov, height=30, width=140)
+        Provee.place(x=20, y=60)
+
+        Labelart = Label(self.Prov, text="Contacto de Proveedores", bg="CYAN", font=("Helvetica", 20))
+        Labelart.place(x=250, y=5)
+        #Labelart3 = Label(self.Prov, text="Lista de articulos", bg="CYAN", font=("Helvetica", 14))
+        #Labelart3.place(x=40, y=5)
+        # Meter articulos en la lista
+        bdd = BDD()
+        conexion = bdd.conectar_bdd()
+        cursor = conexion.cursor()
+        cursor.execute("Select * from Proveedor; ")
+
+        proveedor = cursor.fetchall()
+
+        for x in proveedor:
+            Provee.insert(END, x)
+
+        cursor.close()
+        conexion.close()
+
+    def AgregarArtProv(self):
+
+        self.ArtProv = Tk()
+        self.ArtProv.geometry("900x600")
+        self.ArtProv.title("Compras y Proveedores")
+        self.ArtProv.configure(bg="BLUE")
+
+        Labelart = Label(self.ArtProv, text="Completar todos los campos antes de continuar", bg="CYAN", font=("Helvetica", 20))
+        Labelart.place(x=250, y=5)
+
+        #bdd = BDD()
+        #conexion = bdd.conectar_bdd()
+        #cursor = conexion.cursor()
+        #Agrego = cursor.execute("INSERT INTO Articulo VALUES (<getIdArt>, <getIdArt>, <getIdProd>, <getTalle>, <getColor>)")
+
+
+        #cursor.close()
+        #conexion.close()
+
+        #B16CYP = tkinter.Button(self.ArtProv, text="Aceptar", command=Agrego)
+        #B16CYP.place(x=525, y=260)
+
+        LTalle = Label(self.ArtProv, text="Talle: ", font=("Helvetica", 12))
+        LTalle.place(x=130, y=200)
+        Tallee = StringVar(value="")
+        Talle = Entry(self.ArtProv, textvariable=Tallee, width=50)
+        Talle.place(x=200, y=200)
+
+        LColor = Label(self.ArtProv, text="Color: ", font=("Helvetica", 12))
+        LColor.place(x=130, y=230)
+        Colorr = StringVar(value="")
+        Color = Entry(self.ArtProv, textvariable=Colorr, width=50)
+        Color.place(x=200, y=230)
+
+        LNombre = Label(self.ArtProv, text="Nombre: ", font=("Helvetica", 12))
+        LNombre.place(x=130, y=260)
+        Nombree = StringVar(value="")
+        Nombre = Entry(self.ArtProv, textvariable=Nombree, width=50)
+        Nombre.place(x=200, y=260)
+
+        LPrecio = Label(self.ArtProv, text="Precio: ", font=("Helvetica", 12))
+        LPrecio.place(x=130, y=290)
+        Precioo = StringVar(value="")
+        Precio = Entry(self.ArtProv, textvariable=Precioo, width=50)
+        Precio.place(x=200, y=290)
+
+        LIDProv = Label(self.ArtProv, text="IDProv: ", font=("Helvetica", 12))
+        LIDProv.place(x=130, y=320)
+        IDProvv = StringVar(value="")
+        IDProv = Entry(self.ArtProv, textvariable=IDProvv, width=50)
+        IDProv.place(x=200, y=320)
+
+
+
+
 
 
 #Contabilidad
     def Contabilidad(self):
         CONT = Tk()
         CONT.geometry("900x600")
-        CONT.configure(bg="pink")
+        CONT.configure(bg="BLUE")
         CONT.title("Contabilidad")
 
         BCONT = tkinter.Button(CONT, text="Volver", command=lambda: [self.Atrás(CONT), ()])

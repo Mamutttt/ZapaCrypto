@@ -405,6 +405,9 @@ class Entorno_Grafico():
         B2SYL = tkinter.Button(SYL, text="Actualizar Empleado", command="")
         B2SYL.place(x=150, y=75)
 
+        B2SYL = tkinter.Button(SYL, text="Listar Remitos", command="")
+        B2SYL.place(x=150, y=100)
+
 
         self.ventana.withdraw()
 
